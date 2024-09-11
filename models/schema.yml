@@ -5,6 +5,14 @@ sources:
     schema: gz_raw_data
     description: The raw data of Greenweez containing costs relating to shipping, sales, and products
     tables: 
+      - name: adwords
+        identifier: raw_gz_adwords
+      - name: bing
+        identifier: raw_gz_bing
+      - name: criteo
+        identifier: raw_gz_criteo
+      - name: facebook
+        identifier: raw_gz_facebook
       - name: product
         identifier: raw_gz_product
         description: List of products by ID and their cost

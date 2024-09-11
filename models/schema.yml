@@ -3,10 +3,21 @@ version: 2
 sources:
   - name: raw
     schema: gz_raw_data
-    description: The raw data of Greenweez containing costs relating to shipping, sales, and products
+    description: The raw data of Greenweez containing costs relating to shipping, sales, and products.
     tables: 
       - name: adwords
         identifier: raw_gz_adwords
+        description: all campaigns ran through adwords, contains ads_cost, impression and click
+        columns:
+          - name: date_date
+            description: date of campaign
+          - name: paid_source
+            description: the ad company where the campaign is being run
+          - name: campaign_key
+            description: key of each campaign
+            tests:
+              - unique
+              - not_null
       - name: bing
         identifier: raw_gz_bing
       - name: criteo
@@ -59,4 +70,44 @@ sources:
             description: The logistical cost of shipping the product
           - name: ship_cost
             description: The cost of shipping the product to the business
+
+      - name: int_campaigns
+        description: collection of all ads campaigns
+        columns:
+          - name: date_date
+            description: date of campaign
+            tests: 
+              - not_null       
+          - name: paid_source
+            description: the ad company
+            tests: 
+              - not_null
+          - name: campaign_key
+            description: the code of the campaign
+            tests:
+              - not_null
+          - name: campaign_name
+            description: the name of the campaign
+            tests:
+              - not_null
+          - name: ads_cost
+            description: cost of the ads
+            tests:
+              - not_null
+          - name: impression
+            description: how many times the ad was viewed
+            tests:
+              - not_null
+          - name: click
+            description: how many times the ad was clicked
+            tests:
+              - not_null
+              
+                
+                
+                              
+  
+          
+                  
+                  
 
